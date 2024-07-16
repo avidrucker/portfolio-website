@@ -31,7 +31,7 @@ function App() {
         </header>
           <section className="jumbotron tc">
             <h1>Software Expert</h1>
-            <h2>I help people solve real-world problems... for <strong>money</strong> 😉</h2>
+            <h2>I help people solve real-world problems... for <strong>cheese</strong> 🧀</h2>
           </section>
           <section className="projects">
             {/* remove next h2 from screenreaders */}
