@@ -40,12 +40,12 @@ function App() {
       </section>
         <section className="second-page vh-100 flex flex-column justify-between">
           <section className="projects">
-            <ul>
-              <li>Card Designer</li>
-              <li>AutoFocus</li>
-              <li>TreeSwipe</li>
-              <li>LCC Cloud</li>
-              <li>My Portfolio Site</li>
+            <ul className="list pl0 ml0 center mw6 ba b--blue br2">
+              <li className="ph3 pv3 bb b--blue">Card Designer</li>
+              <li className="ph3 pv3 bb b--blue">AutoFocus</li>
+              <li className="ph3 pv3 bb b--blue">TreeSwipe</li>
+              <li className="ph3 pv3 bb b--blue">LCC Cloud</li>
+              <li className="ph3 pv3 bb b--blue">My Portfolio Site</li>
             </ul>
           </section>
         </section>
