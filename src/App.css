@@ -1,0 +1,42 @@
+html, body, #root {
+  margin: 0;
+  height: 100%;
+}
+
+:root {
+  --darker-color: #1a1a1a;
+  --dark-color: #242424;
+  --light-color: rgba(255, 255, 255, 0.87); 
+}
+
+.darker-bg {
+  background-color: var(--darker-color);
+}
+
+.dark-bg {
+  background-color: var(--dark-color);;
+}
+
+.light-bg {
+  background-color: var(--light-color);
+}
+
+.darker {
+  color: var(--darker-color);
+}
+
+.dark {
+  color: var(--dark-color);
+}
+
+.light {
+  color: var(--light-color);
+}
+
+.w0 {
+  width: 0;
+}
+
+.h0 {
+  height: 0;
+}
