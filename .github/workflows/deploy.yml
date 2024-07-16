@@ -29,5 +29,5 @@ jobs:
         host: ${{ secrets.SERVER_IP }}
         username: ${{ secrets.DEPLOY_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: "dist/*"
+        source: "dist/dist/*"
         target: ${{ github.ref == 'refs/heads/main' && '/var/www/adrucker/' || '/var/www/adrucker_dev/' }}
