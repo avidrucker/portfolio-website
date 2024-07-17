@@ -1,6 +1,14 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
+// - [ ] move visitor count to the footer
+// - [ ] make projects display be cards w/ links & short videos that play on hover
+// - [ ] add contact info
+// - [ ] make dark mode toggle be a sun/moon SVG icon
+// - [ ] add a "back to top" button that smoothly scrolls up in the footer
+// - [ ] add theme provider to toggle themes (this will replace the dark mode toggle)
+// - [ ] store theme selection in local storage to use in "sibling apps" (like LCC Cloud)
+
 const BASE_URL = import.meta.env.VITE_API_URL || "/";
 
 function App() {
