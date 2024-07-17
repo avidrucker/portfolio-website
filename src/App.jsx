@@ -1,8 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
+
+  // query /api/count?type=json to get the visitor count using fetch and GET
+  const [visitorCount, setVisitorCount] = useState(0);
+  
+  // load the correct visitor count on initial page load
+  useEffect(() => {
+    fetch("/api/count?type=json")
+      .then((response) => response.json())
+      .then((data) => {
+        setVisitorCount(data.count);
+      });
+    }, []);
+
+  // check visitor count and update it if has increased
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetch("/api/count?type=json")
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.count > visitorCount) {
+            setVisitorCount(data.count);
+          }
+        });
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <main
@@ -16,6 +42,7 @@ function App() {
             <a className={`f2 link ${darkMode ? " light " : " dark "}`} href="#">
               Avi Drucker
             </a>
+            <p className="ma0 o-50">Visitor Count: {visitorCount}</p>
             <a className="f3 link underline ml-auto mr3" href="#">
               Contact
             </a>
