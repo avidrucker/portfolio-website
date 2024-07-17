@@ -34,7 +34,7 @@ function App() {
 
   return (
     <main
-      className={`min-h-100 flex flex-column ${
+      className={` min-h-100 flex flex-column ${
         darkMode ? " dark-bg light " : " light-bg dark "
       }`}
     >
@@ -44,7 +44,7 @@ function App() {
             <a className={`f2 link ${darkMode ? " light " : " dark "}`} href="#">
               Avi Drucker
             </a>
-            <p className="ma0 o-50">Visitor Count: {visitorCount}</p>
+            <p className="ma0 o-50 f4 ml3">Visitors: {visitorCount}</p>
             <a className="f3 link underline ml-auto mr3" href="#">
               Contact
             </a>
@@ -58,9 +58,10 @@ function App() {
             </button>
           </nav>
         </header>
-          <section className="jumbotron tc">
-            <h1>Software Expert</h1>
-            <h2>I help people solve real-world problems... for <strong>cheese</strong> 🧀</h2>
+          <section className="jumbotron tc ph4">
+            <h1 className="ma0 f-subheadline">Software Expert</h1>
+            <h2 className="ma0 f2 pt4 balance">I help people solve real-world problems</h2>
+            {/* ... for <strong className="i">cheese</strong> 🧀 */}
           </section>
           <section className="projects">
             {/* remove next h2 from screenreaders */}
@@ -70,11 +71,11 @@ function App() {
         <section className="second-page vh-100 flex flex-column justify-between">
           <section className="projects">
             <ul className="list pl0 ml0 center mw6 ba b--blue br2">
-              <li className="ph3 pv3 bb b--blue">Card Designer</li>
-              <li className="ph3 pv3 bb b--blue">AutoFocus</li>
-              <li className="ph3 pv3 bb b--blue">TreeSwipe</li>
-              <li className="ph3 pv3 bb b--blue">LCC Cloud</li>
-              <li className="ph3 pv3 bb b--blue">My Portfolio Site</li>
+              <li className="ph3 pv3 bb b--blue"><strong className="b">Card Designer</strong>: Digital flashcard editing enhanced</li>
+              <li className="ph3 pv3 bb b--blue"><strong className="b">AutoFocus</strong>: Productivity via radical simplicity</li>
+              <li className="ph3 pv3 bb b--blue"><strong className="b">TreeSwipe</strong>: A Chrome extension for Gmail</li>
+              <li className="ph3 pv3 bb b--blue"><strong className="b">LCC Cloud</strong>: Assembly in the cloud</li>
+              <li className="ph3 pv3 bb b--blue"><strong className="b">Portfolio Site</strong>: You are here now</li>
             </ul>
           </section>
         </section>
