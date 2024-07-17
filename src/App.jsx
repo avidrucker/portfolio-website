@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
+const BASE_URL = import.meta.env.VITE_API_URL || "/";
+
 function App() {
   const [darkMode, setDarkMode] = useState(true);
 
@@ -9,7 +11,7 @@ function App() {
   
   // load the correct visitor count on initial page load
   useEffect(() => {
-    fetch("/api/count?type=json")
+    fetch(`${BASE_URL}api/count?type=json`)
       .then((response) => response.json())
       .then((data) => {
         setVisitorCount(data.count);
@@ -19,7 +21,7 @@ function App() {
   // check visitor count and update it if has increased
   useEffect(() => {
     const interval = setInterval(() => {
-      fetch("/api/count?type=json")
+      fetch(`${BASE_URL}api/count?type=json&noincrement=true`)
         .then((response) => response.json())
         .then((data) => {
           if (data.count > visitorCount) {
