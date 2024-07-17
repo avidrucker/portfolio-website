@@ -1,12 +1,48 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
+
+// - [ ] move visitor count to the footer
+// - [ ] make projects display be cards w/ links & short videos that play on hover
+// - [ ] add contact info
+// - [ ] make dark mode toggle be a sun/moon SVG icon
+// - [ ] add a "back to top" button that smoothly scrolls up in the footer
+// - [ ] add theme provider to toggle themes (this will replace the dark mode toggle)
+// - [ ] store theme selection in local storage to use in "sibling apps" (like LCC Cloud)
+
+const BASE_URL = import.meta.env.VITE_API_URL || "/";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
 
+  // query /api/count?type=json to get the visitor count using fetch and GET
+  const [visitorCount, setVisitorCount] = useState(0);
+  
+  // load the correct visitor count on initial page load
+  useEffect(() => {
+    fetch(`${BASE_URL}api/count?type=json`)
+      .then((response) => response.json())
+      .then((data) => {
+        setVisitorCount(data.count);
+      });
+    }, []);
+
+  // check visitor count and update it if has increased
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetch(`${BASE_URL}api/count?type=json&noincrement=true`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.count > visitorCount) {
+            setVisitorCount(data.count);
+          }
+        });
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <main
-      className={`min-h-100 flex flex-column ${
+      className={` min-h-100 flex flex-column ${
         darkMode ? " dark-bg light " : " light-bg dark "
       }`}
     >
@@ -16,6 +52,7 @@ function App() {
             <a className={`f2 link ${darkMode ? " light " : " dark "}`} href="#">
               Avi Drucker
             </a>
+            <p className="ma0 o-50 f4 ml3">Visitors: {visitorCount}</p>
             <a className="f3 link underline ml-auto mr3" href="#">
               Contact
             </a>
@@ -29,9 +66,10 @@ function App() {
             </button>
           </nav>
         </header>
-          <section className="jumbotron tc">
-            <h1>Software Expert</h1>
-            <h2>I help people solve real-world problems... for <strong>money</strong> 😉</h2>
+          <section className="jumbotron tc ph4">
+            <h1 className="ma0 f-subheadline">Software Expert</h1>
+            <h2 className="ma0 f2 pt4 balance">I help people solve real-world problems</h2>
+            {/* ... for <strong className="i">cheese</strong> 🧀 */}
           </section>
           <section className="projects">
             {/* remove next h2 from screenreaders */}
@@ -41,11 +79,11 @@ function App() {
         <section className="second-page vh-100 flex flex-column justify-between">
           <section className="projects">
             <ul className="list pl0 ml0 center mw6 ba b--blue br2">
-              <li className="ph3 pv3 bb b--blue">Card Designer</li>
-              <li className="ph3 pv3 bb b--blue">AutoFocus</li>
-              <li className="ph3 pv3 bb b--blue">TreeSwipe</li>
-              <li className="ph3 pv3 bb b--blue">LCC Cloud</li>
-              <li className="ph3 pv3 bb b--blue">My Portfolio Site</li>
+              <li className="ph3 pv3 bb b--blue"><strong className="b">Card Designer</strong>: Digital flashcard editing enhanced</li>
+              <li className="ph3 pv3 bb b--blue"><strong className="b">AutoFocus</strong>: Productivity via radical simplicity</li>
+              <li className="ph3 pv3 bb b--blue"><strong className="b">TreeSwipe</strong>: A Chrome extension for Gmail</li>
+              <li className="ph3 pv3 bb b--blue"><strong className="b">LCC Cloud</strong>: Assembly in the cloud</li>
+              <li className="ph3 pv3 bb b--blue"><strong className="b">Portfolio Site</strong>: You are here now</li>
             </ul>
           </section>
         </section>
