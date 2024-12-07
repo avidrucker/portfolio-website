@@ -8,6 +8,7 @@ import "./App.css";
 // - [ ] add a "back to top" button that smoothly scrolls up in the footer
 // - [ ] add theme provider to toggle themes (this will replace the dark mode toggle)
 // - [ ] store theme selection in local storage to use in "sibling apps" (like LCC Cloud)
+// - [ ] store light/dark mode in local storage to persist across page loads
 
 const BASE_URL = import.meta.env.VITE_API_URL || "/";
 
