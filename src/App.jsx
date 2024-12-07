@@ -13,7 +13,15 @@ import "./App.css";
 const BASE_URL = import.meta.env.VITE_API_URL || "/";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(() => {
+    const storedMode = localStorage.getItem("darkMode");
+    return storedMode ? JSON.parse(storedMode) : true;
+  });
+
+  // Update localStorage whenever darkMode changes
+  useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
 
   // query /api/count?type=json to get the visitor count using fetch and GET
   const [visitorCount, setVisitorCount] = useState(0);
