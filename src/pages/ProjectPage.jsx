@@ -60,7 +60,7 @@ function ProjectPage() {
           </a>
         </p>
       )}
-      {project.long && <p className="ma0">{project.long}</p>}
+      {project.long && <p className="ma0 pv2 measure balance tc">{project.long}</p>}
       <p className="ma0 pv2">
         <Link to="/">Back to Home</Link>
       </p>
