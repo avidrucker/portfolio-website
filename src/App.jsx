@@ -54,6 +54,22 @@ function App() {
     return () => clearInterval(interval);
   }, [visitorCount]);
 
+  const [showUp, setShowUp] = useState(false);
+  const [showDown, setShowDown] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+      setShowUp(scrollTop > 100);
+      setShowDown(scrollTop < docHeight - windowHeight - 100);
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <BrowserRouter>
       <div className={`debug relative min-h-100 flex flex-column ${darkMode ? " dark-bg light " : " light-bg dark "}`}>
@@ -66,6 +82,23 @@ function App() {
         </Routes>
 
         <Footer />
+
+        {showUp && (
+          <div
+            className="scroll-indicator scroll-up"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            ↑
+          </div>
+        )}
+        {showDown && (
+          <div
+            className="scroll-indicator scroll-down"
+            onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+          >
+            ↓
+          </div>
+        )}
       </div>
     </BrowserRouter>
   );
