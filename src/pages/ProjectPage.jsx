@@ -26,6 +26,7 @@ const PROJECTS = {
     title: "LCC.js",
     desc: "Virtual assembler and interpreter",
     github: "https://github.com/avidrucker/lccjs/",
+    app: "https://hydra.newpaltz.edu/lccjs/",
     long: "I built LCC.js to provide a console-based environment for assembling and interpreting LCC assembly language programs. Built with JavaScript and NodeJS.",
   },
   "web-map-app": {
