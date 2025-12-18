@@ -10,7 +10,7 @@ function HomePage({ darkMode }) {
       <section className={`first-page vh-100 flex flex-column justify-around items-center`}>
         <section className="jumbotron tc ph4">
           <h1 className="ma0 responsive-title">Software Expert</h1>
-          <h2 className="ma0 f2 pt2 pt3-l responsive-subtitle balance fw6">I help people solve real-world problems</h2>
+          <h2 className="ma0 f2 pt2 responsive-subtitle balance fw6">I help people solve real-world problems</h2>
         </section>
       </section>
       <section className={`second-page vh-100 flex flex-column justify-around items-center`}>
