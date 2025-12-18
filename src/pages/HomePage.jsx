@@ -37,9 +37,9 @@ function HomePage({ darkMode }) {
               <strong className="b">TreeSwipe</strong>: A Chrome extension for Gmail
             </li>
             </Link>
-            <Link to="/projects/lcc-cloud">
+            <Link to="/projects/lcc-js">
             <li className="ph3 pv3 bb b--blue">
-              <strong className="b">LCC Cloud</strong>: Assembly in the cloud
+              <strong className="b">LCC.js</strong>: Virtual assembler and interpreter
             </li>
             </Link>
           </ul>
