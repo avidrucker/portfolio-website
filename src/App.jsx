@@ -70,9 +70,17 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    window.onbeforeunload = () => {
+      for (const form of document.getElementsByTagName('form')) {
+        form.reset();
+      }
+    };
+  }, []);
+
   return (
     <BrowserRouter>
-      <div className={`debug relative min-h-100 flex flex-column ${darkMode ? " dark-bg light " : " light-bg dark "}`}>
+      <div className={`relative min-h-100 flex flex-column ${darkMode ? " dark-bg light " : " light-bg dark "}`}>
         <Header darkMode={darkMode} setDarkMode={setDarkMode} visitorCount={visitorCount} />
 
         <Routes>
