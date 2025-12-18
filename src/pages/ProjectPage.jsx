@@ -20,7 +20,7 @@ const PROJECTS = {
     desc: "A Chrome extension for Gmail",
     github: "https://github.com/avidrucker/tree-swipe/",
     app: "https://chromewebstore.google.com/detail/tree-swipe/hlpelbabphidmofbjcijjjkagolaebjl?hl=en",
-    long: "I built TreeSwipe to enhance email management in Gmail by allowing users to quickly archive or delete emails with simple keyboard shortcuts. Developed as a Chrome extension using JavaScript and the Gmail API.",
+    long: "I built TreeSwipe to enhance email management in Gmail by allowing users to quickly label emails with simple keyboard shortcuts. Inspired by David Allen's Getting Things Done methodology. Developed as a Chrome extension using JavaScript and the Gmail API.",
   },
   "lcc-js": {
     title: "LCC.js",
