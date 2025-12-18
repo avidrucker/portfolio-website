@@ -8,6 +8,14 @@ html, body, #root {
   --darker-color: #1a1a1a;
   --dark-color: #242424;
   --light-color: rgba(255, 255, 255, 0.87); 
+
+  --title-min: 2rem;
+  --title-max: 5rem;
+  --title-scale: 3rem; /* title-max - title-min */
+
+  --subtitle-min: 1.25rem;
+  --subtitle-max: 2.5rem;
+  --subtitle-scale: 1.25rem; /* subtitle-max - subtitle-min */
 }
 
 .darker-bg {
@@ -51,30 +59,29 @@ html, body, #root {
 }
 
 .responsive-title {
-  font-size: 2rem;
-}
+  font-size: var(--title-min)};
 
 .responsive-subtitle {
-  font-size: 1.25rem;
+  font-size: var(--subtitle-min);
 }
 
 @media (min-width: 30em) and (max-width: 60em) {
   .responsive-title {
-    font-size: calc(2rem + 2rem * ((100vw - 30em) / 30em)) !important;
+  font-size: clamp(var(--title-min), calc(var(--title-min) + var(--title-scale) * ((100vw - 30em) / 30em)), var(--title-max)) !important;
   }
 
   .responsive-subtitle {
-    font-size: calc(1.25rem + 1.25rem * ((100vw - 30em) / 30em)) !important;
+    font-size: clamp(var(--subtitle-min), calc(var(--subtitle-min) + var(--subtitle-scale) * ((100vw - 30em) / 30em)), var(--subtitle-max)) !important;
   }
 }
 
 @media (min-width: 60em) {
   .responsive-title {
-    font-size: 5rem !important;
+    font-size: var(--title-max);
   }
 
   .responsive-subtitle {
-    font-size: 2.5rem !important;
+    font-size: var(--subtitle-max);
   }
 }
 
