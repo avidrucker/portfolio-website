@@ -14,7 +14,7 @@ function HomePage({ darkMode }) {
         </section>
       </section>
       <section className={`second-page vh-100-ns pt4 pt0-ns flex flex-column justify-around items-center`}>
-        <section className="projects ph2 ph0-ns pb4 pb2-ns">
+        <section className="projects ph2 ph0-ns pb4 pb5-ns">
           <h2 className="tc f2 ma0 pb2-ns">Projects</h2>
           <ul className="list pl0 ml0 center mw6 ba b--blue br2 mv2 mv0-ns">
             <Link to="/projects/avatar-maker">

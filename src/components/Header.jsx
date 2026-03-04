@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 
 function Header({ darkMode, setDarkMode, visitorCount }) {
   return (
-    <header id="top" className="relative absolute-ns top-0 w-100">
+    <header
+      id="top"
+      className={`relative absolute-ns top-0 w-100 ${
+        darkMode ? "dark-surface-bg" : "light-surface-bg"
+      }`}
+    >
       <nav className="flex items-center justify-between ph2 ph4-ns pv3">
         <Link className={`lh-title responsive-name link ${darkMode ? " light " : " dark "}`} to="/">
           Avi Drucker

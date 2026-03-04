@@ -84,7 +84,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
 
-        <Footer />
+        <Footer darkMode={darkMode} />
 
         {showUp && (
           <div

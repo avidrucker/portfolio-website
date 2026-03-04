@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 
-function Footer() {
+function Footer({ darkMode }) {
   return (
-    <footer className="absolute-ns relative bottom-0 w-100">
+    <footer
+      className={`absolute-ns relative bottom-0 w-100 ${
+        darkMode ? "dark-surface-bg light" : "light-surface-bg dark"
+      }`}
+    >
       <nav className="flex items-center justify-between ph2 ph4-ns pv3">
         <p className="ma0 mr-auto">&copy; {new Date().getFullYear()} <span className="nowrap">Avi Drucker</span></p>
         <section className="flex flex-wrap justify-end">
