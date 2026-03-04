@@ -36,6 +36,13 @@ const PROJECTS = {
     app: "https://avidrucker.github.io/ship-log-map/",
     long: "I built this PWA to enable people to create, edit, and share their own interactive maps with custom markers and data layers. Built with React, Cytoscape, and Tachyons CSS.",
   },
+  "avatar-maker": {
+    title: "Avatar Maker",
+    desc: "Custom avatar creation tool",
+    github: "https://github.com/avidrucker/avatar-maker",
+    app: "https://avidrucker.github.io/avatar-maker/",
+    long: "I built this web app to allow users to create and customize their own avatars. Built with ClojureScript, Reagent, shadow-cljs, and Tachyons CSS.",
+  }
 };
 
 function ProjectPage() {

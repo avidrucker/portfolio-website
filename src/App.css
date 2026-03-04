@@ -9,7 +9,7 @@ html, body, #root {
   --dark-color: #242424;
   --light-color: rgba(255, 255, 255, 0.87); 
 
-  --title-min: 2rem;
+  --title-min: 2.25rem;
   --title-max: 5rem;
   --title-scale: 3rem; /* title-max - title-min */
 
@@ -59,29 +59,20 @@ html, body, #root {
 }
 
 .responsive-title {
-  font-size: var(--title-min)};
+  font-size: var(--title-min);
+}
 
 .responsive-subtitle {
   font-size: var(--subtitle-min);
 }
 
-@media (min-width: 30em) and (max-width: 60em) {
+@media screen and (min-width: 30em) {
   .responsive-title {
-  font-size: clamp(var(--title-min), calc(var(--title-min) + var(--title-scale) * ((100vw - 30em) / 30em)), var(--title-max)) !important;
+    font-size: clamp(var(--title-min), 8vw, var(--title-max));
   }
 
   .responsive-subtitle {
-    font-size: clamp(var(--subtitle-min), calc(var(--subtitle-min) + var(--subtitle-scale) * ((100vw - 30em) / 30em)), var(--subtitle-max)) !important;
-  }
-}
-
-@media (min-width: 60em) {
-  .responsive-title {
-    font-size: var(--title-max);
-  }
-
-  .responsive-subtitle {
-    font-size: var(--subtitle-max);
+    font-size: clamp(var(--subtitle-min), 4vw, var(--subtitle-max));
   }
 }
 

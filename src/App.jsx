@@ -17,6 +17,7 @@ import ContactPage from "./pages/ContactPage";
 // - [ ] store light/dark mode in local storage to persist across page loads
 
 const BASE_URL = import.meta.env.VITE_API_URL || "/";
+const VISITOR_COUNT_STORAGE_KEY = "visitorCount";
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -29,30 +30,24 @@ function App() {
   }, [darkMode]);
 
   // Keep visitor count at app-level so Header can display it.
-  const [visitorCount, setVisitorCount] = useState(0);
+  const [visitorCount, setVisitorCount] = useState(() => {
+    const storedCount = localStorage.getItem(VISITOR_COUNT_STORAGE_KEY);
+    const parsedCount = Number.parseInt(storedCount ?? "", 10);
+
+    return Number.isFinite(parsedCount) ? parsedCount : 0;
+  });
 
   useEffect(() => {
     fetch(`${BASE_URL}api/count?type=json`)
       .then((response) => response.json())
       .then((data) => {
-        setVisitorCount(data.count);
+        if (typeof data.count === "number") {
+          setVisitorCount(data.count);
+          localStorage.setItem(VISITOR_COUNT_STORAGE_KEY, String(data.count));
+        }
       })
       .catch(() => {});
   }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      fetch(`${BASE_URL}api/count?type=json&noincrement=true`)
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.count > visitorCount) {
-            setVisitorCount(data.count);
-          }
-        })
-        .catch(() => {});
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [visitorCount]);
 
   const [showUp, setShowUp] = useState(false);
   const [showDown, setShowDown] = useState(true);
