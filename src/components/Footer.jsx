@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Footer({ darkMode }) {
   return (
     <footer
-      className={`absolute-ns relative bottom-0 w-100 ${
+      className={`relative w-100 mt-auto ${
         darkMode ? "dark-surface-bg light" : "light-surface-bg dark"
       }`}
     >
